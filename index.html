@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #f0f0f0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .container {
+      flex: 1;
+    }
+    
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .surprise-text {
+      margin-top: 50px;
+      font-size: 50px;
+      font-weight: bold;
+      color: #ff0000;
+      opacity: 0;
+      transform: scale(0.5) rotate(-10deg);
+      transition: all 0.8s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .show {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 15px 0;
+      margin-top: auto;
+      width: 100%;
+      font-size: 16px;
+    }
+    
+    .footer-name {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button onclick="showSurprise()">Click for Surprise</button>
+    <div id="surprise" class="surprise-text">Tution Bundh</div>
+  </div>
+  
+  <footer>
+    <div class="footer-name">Annam Sonali</div>
+  </footer>
+  
+  <script>
+    function showSurprise() {
+      document.getElementById('surprise').classList.add('show');
+      
+      // Add a small bounce after the main animation
+      setTimeout(() => {
+        document.getElementById('surprise').style.transition = "transform 0.3s ease";
+        document.getElementById('surprise').style.transform = "scale(1.1)";
+        
+        setTimeout(() => {
+          document.getElementById('surprise').style.transform = "scale(1)";
+        }, 300);
+      }, 800);
+    }
+  </script>
+</body>
+</html>
